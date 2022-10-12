@@ -32,21 +32,19 @@ class _ForgotMyPassPagePageState
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Form(
-            child: Expanded(
-              child: Column(
-                  mainAxisAlignment:
-                      MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment:
-                      CrossAxisAlignment.center,
-                  children: [
-                    _signInText(),
-                    _forgotmyPasswordPicture,
-                    userInfoPhone(
-                        focusNodeTextField3rd:
-                            focusNodeTextField3rd),
-                    _sendMessageButton(),
-                  ]),
-            ),
+            child: Column(
+                mainAxisAlignment:
+                    MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment:
+                    CrossAxisAlignment.center,
+                children: [
+                  _signInText(),
+                  _forgotmyPasswordPicture,
+                  userInfoPhone(
+                      focusNodeTextField3rd:
+                          focusNodeTextField3rd),
+                  _sendMessageButton(),
+                ]),
           ),
         ),
       ),

@@ -39,6 +39,11 @@ dependencies:
   gestures: ^1.0.0
   sizer: ^2.0.15
   services: ^0.0.1
+  http: ^0.12.2
+  dio: ^3.0.10
+  equatable: ^2.0.5
+  json_annotation: ^4.7.0
+  build_runner: ^1.12.2
 
 dev_dependencies:
   flutter_test:

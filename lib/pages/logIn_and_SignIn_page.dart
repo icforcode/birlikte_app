@@ -6,6 +6,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:passwordfield/passwordfield.dart';
 
 import 'forgot_my_password_page.dart';
+import 'tabbar_view.dart';
 
 class LogInSignInPage extends StatefulWidget {
   LogInSignInPage({super.key});
@@ -416,7 +417,7 @@ class _logInButton extends StatelessWidget {
                     PageTransition(
                         type:
                             PageTransitionType.rightToLeft,
-                        child: HomePageApp(),
+                        child: TabbarViewPage(),
                         isIos: true));
               }),
         ],
