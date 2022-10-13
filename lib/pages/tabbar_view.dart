@@ -1,8 +1,13 @@
+import 'package:demos/pages/give_a_suggestion.dart';
+import 'package:demos/pages/rival_page.dart';
+import 'package:demos/pages/search_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 import 'home_page.dart';
+import 'message_page.dart';
 
 // ignore: use_key_in_widget_constructors
 class TabbarViewPage extends StatefulWidget {
@@ -62,7 +67,13 @@ class _TabbarViewState extends State<TabbarViewPage> {
         floatingActionButton: FloatingActionButton(
           backgroundColor:
               Color.fromARGB(255, 120, 186, 230),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                context,
+                PageTransition(
+                    type: PageTransitionType.bottomToTop,
+                    child: GiveA_SuggestionPage()));
+          },
           child: Icon(Icons.lightbulb),
         ),
         floatingActionButtonLocation:
@@ -82,9 +93,9 @@ class _TabbarViewState extends State<TabbarViewPage> {
         child: TabBarView(
           children: <Widget>[
             HomePageApp(scrollController),
-            Text("data"),
-            Text("data"),
-            Text("data"),
+            SearchPage(scrollController),
+            RivalPage(),
+            MessagePage(scrollController),
           ],
         ),
       );
@@ -96,7 +107,7 @@ class _TabbarViewState extends State<TabbarViewPage> {
       );
   Widget get _centerAppBarWidget => currentIndex == 1
       ? _searchTextField
-      : const Text("Home", style: titleTextStyle);
+      : const Text("Ana Sayfa", style: titleTextStyle);
 
   Widget get _searchTextField => TextField(
       maxLines: 1,
@@ -145,7 +156,7 @@ class _TabbarViewState extends State<TabbarViewPage> {
           borderRadius: BorderRadius.circular(25));
 
   Widget get _tabbarItems => TabBar(
-        indicatorColor: Color(0xff504a78),
+        indicatorColor: Color.fromARGB(255, 83, 74, 143),
         indicatorSize: TabBarIndicatorSize.tab,
         isScrollable: false,
         onTap: (index) {
@@ -158,7 +169,7 @@ class _TabbarViewState extends State<TabbarViewPage> {
           Tab(icon: Icon(Icons.search)),
           Tab(
               icon: Icon(
-                  Icons.insert_chart_outlined_rounded)),
+                  Icons.align_vertical_bottom_outlined)),
           Tab(icon: Icon(Icons.mail)),
         ],
       );
