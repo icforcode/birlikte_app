@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class RivalPage extends StatefulWidget {
-  const RivalPage({super.key});
+class GraphicPage extends StatefulWidget {
+  const GraphicPage({super.key});
 
   @override
-  State<RivalPage> createState() => _RivalPageState();
+  State<GraphicPage> createState() => _GraphicPageState();
 }
 
-class _RivalPageState extends State<RivalPage> {
+class _GraphicPageState extends State<GraphicPage> {
   final String _randomPic =
       "https://loremflickr.com/320/240";
   @override

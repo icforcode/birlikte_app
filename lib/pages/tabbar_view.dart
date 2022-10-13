@@ -1,5 +1,6 @@
 import 'package:demos/pages/give_a_suggestion.dart';
-import 'package:demos/pages/rival_page.dart';
+import 'package:demos/pages/notification_page.dart';
+import 'package:demos/pages/graphic_page.dart';
 import 'package:demos/pages/search_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -8,6 +9,7 @@ import 'package:page_transition/page_transition.dart';
 
 import 'home_page.dart';
 import 'message_page.dart';
+import 'profile_page.dart';
 
 // ignore: use_key_in_widget_constructors
 class TabbarViewPage extends StatefulWidget {
@@ -94,7 +96,7 @@ class _TabbarViewState extends State<TabbarViewPage> {
           children: <Widget>[
             HomePageApp(scrollController),
             SearchPage(scrollController),
-            RivalPage(),
+            GraphicPage(),
             MessagePage(scrollController),
           ],
         ),
@@ -145,7 +147,14 @@ class _TabbarViewState extends State<TabbarViewPage> {
               color: Color.fromARGB(255, 217, 222, 228),
               size: 35,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  PageTransition(
+                      type: PageTransitionType.rightToLeft,
+                      child: NotificationPage(),
+                      isIos: true));
+            },
           )
         ],
       );
@@ -176,9 +185,18 @@ class _TabbarViewState extends State<TabbarViewPage> {
 
   Widget get _appBarItems => Row(
         children: <Widget>[
-          CircleAvatar(
-              backgroundImage:
-                  NetworkImage(_profilePicUrl)),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  PageTransition(
+                      type: PageTransitionType.leftToRight,
+                      child: ProfilePage()));
+            },
+            child: CircleAvatar(
+                backgroundImage:
+                    NetworkImage(_profilePicUrl)),
+          ),
           _emptyWidht,
           Expanded(child: _centerAppBarWidget),
           _emptyWidht,
